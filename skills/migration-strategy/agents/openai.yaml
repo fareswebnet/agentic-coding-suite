@@ -1,0 +1,4 @@
+interface:
+  display_name: "SDLC Migration Strategy"
+  short_description: "Choose approach, order, and pilot"
+  default_prompt: "Use $migration-strategy to choose and justify the modernization strategy, order the batches by risk, design coexistence, and run a pilot before scaling."

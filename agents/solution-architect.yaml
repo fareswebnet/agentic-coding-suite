@@ -13,6 +13,7 @@ skills:
   - security-privacy-compliance
   - data-migration-reconciliation
   - api-versioning-deprecation
+  - migration-strategy
 inputs:
   - PRD, BDD examples, and context map
   - current repo architecture

@@ -1,0 +1,35 @@
+{
+  "skill": "legacy-stack-playbooks",
+  "scenarios": [
+    {
+      "id": "stack-adelia-generated",
+      "prompt": "Our IBM i application is built with Adelia and we want to inventory it for a migration. The team proposes to just read the generated RPG on the machine since that is what actually runs. How do we proceed? (No repository or tool access in this exercise; answer in text.)",
+      "must": [
+        "(?i)(repositor|model|source of the logic|tool)",
+        "(?i)(generat(or|ed|ion)).{0,200}(version|default|round|semantic|runtime)",
+        "(?i)(hand.edit|custom|diff|compare)"
+      ],
+      "forbid": []
+    },
+    {
+      "id": "stack-symfony-hidden-rules",
+      "prompt": "We are porting a Symfony 4 e-commerce app to another stack. Controllers and entities are documented, so we plan to port those and write tests from the docs. What should we check first? (No repository or tool access in this exercise; answer in text.)",
+      "must": [
+        "(?i)(listener|subscriber|lifecycle|event)",
+        "(?i)(twig|voter|access_control|validator|form)",
+        "(?i)(record|capture|replay|oracle|characteriz)"
+      ],
+      "forbid": []
+    },
+    {
+      "id": "stack-rpg-rounding",
+      "prompt": "We migrate an RPG pricing program to Java; the Java unit tests we wrote from the specification all pass, so we consider the pricing equivalent. Is that enough? (No repository or tool access in this exercise; answer in text.)",
+      "must": [
+        "(?i)(round|half.adjust|truncat)",
+        "(?i)(packed|zoned|decimal|BigDecimal)",
+        "(?i)(legacy|oracle|real).{0,80}(run|output|compare)|compare.{0,80}legacy"
+      ],
+      "forbid": []
+    }
+  ]
+}

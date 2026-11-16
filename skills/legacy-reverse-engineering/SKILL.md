@@ -17,7 +17,8 @@ Turn implicit behavior into explicit, id-addressable rules that tests can prove 
 4. Mine tests, fixtures, production data shapes, logs, and support tickets for behavior the code hides; label each rule as observed, inferred, or confirmed by the business.
 5. Record bugs and accidental behavior separately as `LEGACY_DEFECT` with a decision: reproduce only if the business depends on it, otherwise improve in the target.
 6. List unknowns and contradictions as questions with an owner; they block the batch only if they affect an R1 rule.
-7. Link each rule to registry keys and, later, to scenarios and tests so `traceability-ledger` can check coverage.
+7. Record the legacy security baseline apart from the rules: authorization model, service accounts, adopted or shared privileges, file transfers, secrets, and logging. Faithful behavior can carry a vulnerability; `security-privacy-compliance` decides what the target must not inherit.
+8. Link each rule to registry keys and, later, to scenarios and tests so `traceability-ledger` can check coverage.
 
 ## Outputs
 
@@ -25,6 +26,7 @@ Turn implicit behavior into explicit, id-addressable rules that tests can prove 
 
 ## Guardrails
 
+- Mark each rule NEEDS_BUSINESS_VALIDATION until an owner confirms it; a rule in that state is not implemented, and no target code relies on it.
 - Do not read the legacy's intent into code; mark inferred rules as inferred until confirmed.
 - Every R1 rule needs a second reader or an executed oracle before it is approved.
 - Do not copy legacy defects by default; record the decision to improve or reproduce.
@@ -32,7 +34,7 @@ Turn implicit behavior into explicit, id-addressable rules that tests can prove 
 
 ## Handoff
 
-`characterization-testing` to prove the rules, `bdd-specifications` to express them as scenarios.
+`characterization-testing` to prove the rules, `bdd-specifications` to express them as scenarios, `legacy-stack-playbooks` for the stack's hidden-behavior checklist.
 
 ## Provenance
 

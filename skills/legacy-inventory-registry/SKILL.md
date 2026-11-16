@@ -12,7 +12,7 @@ Give the migration a denominator: a registry nobody can quietly shrink, where 10
 ## Workflow
 
 1. Inventory each source repository with a script or the framework's own route and schema listing; never replace the inventory with a free-form reading. If no extractor exists for the technology, build one with a test before starting.
-2. Enumerate by kind: ACTION, SCREEN, ENTITY, TABLE, COMMAND, JOB, OUTBOUND_CALL (the contract the target must serve), and RULE where rules are extracted.
+2. Enumerate by kind: ACTION, SCREEN, ENTITY, TABLE, COMMAND, JOB, BATCH, REPORT (including printed and spooled output), FILE_INTERFACE (inbound and outbound exchanges with partners), SCHEDULE, OUTBOUND_CALL (the contract the target must serve), and RULE where rules are extracted. Use `legacy-usage-evidence` to find what is alive, and `legacy-stack-playbooks` for the stack's own sources.
 3. Cross-check counts against the framework's own output (route list, ORM metadata, schema dump); explain or fix every gap before freezing.
 4. Break write operations into fields: for every create or update, list the form or entity fields and constraints in the line's note or an attached field file. The denominator of a write is its field list.
 5. Inventory reference data (lookup tables behind every choice list), implicit constraints (uniqueness, scoping by role or tenant), and homonyms (same action name in two repositories gets one line each).
@@ -29,6 +29,7 @@ Give the migration a denominator: a registry nobody can quietly shrink, where 10
 - No target work on a repository until its registry exists, is frozen, and was reviewed.
 - Never delete a registry line; a line that disappears from a later inventory is marked, not erased.
 - Generated and vendored folders must be ignored by the extractor, but check that no business logic hides inside them.
+- Label every note as observed, hypothesis, or decision; a hypothesis never justifies an ABANDONED line.
 - Technical fragments (partial templates, AJAX snippets) may be REPLACED up front, but only with the replacement named.
 
 ## Handoff

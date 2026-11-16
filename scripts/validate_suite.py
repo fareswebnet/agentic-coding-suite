@@ -131,7 +131,8 @@ def require_keys(path: Path, text: str, keys: set[str], errors: list[str]) -> No
 
 
 def validate_references(path: Path, text: str, known_skills: set[str], known_agents: set[str], errors: list[str]) -> None:
-    for skill in sorted(set(re.findall(r"^\s+- (sdlc-[a-z0-9-]+)\s*$", text, re.M))):
+    listed = {item for block in re.findall(r"^\s*skills:\s*\n((?:\s+- [a-z0-9-]+\s*\n)+)", text, re.M) for item in re.findall(r"- ([a-z0-9-]+)", block)}
+    for skill in sorted(listed):
         if skill not in known_skills:
             errors.append(f"{path.relative_to(ROOT)}: unknown skill {skill}")
     for agent in sorted(set(re.findall(r"^\s+agent: ([a-z0-9-]+)\s*$", text, re.M))):
@@ -193,8 +194,8 @@ def main() -> int:
         if BAD.search(text):
             errors.append(f"{skill.name}: contains placeholder text")
     count = len(list(SKILLS.glob("*/")))
-    if count != 58:
-        errors.append(f"expected 58 skills, found {count}")
+    if count != 61:
+        errors.append(f"expected 61 skills, found {count}")
 
     known_agents = {path.stem for path in AGENTS.glob("*.yaml")}
     if known_agents != EXPECTED_AGENTS:

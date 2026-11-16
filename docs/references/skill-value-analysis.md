@@ -49,7 +49,7 @@ The scenarios for the five measured skills are kept in `evals/removed/`. The del
 
 ## Not decided by data
 
-49 of the remaining 58 skills have no scenario yet: the other generic lifecycle skills (domain modeling, UX, data architecture, ...), and the hand-written migration, merge, and spec-driven ones. They stay, because absence of a test is not evidence of no value, and several are wired into harnesses and agents. The same test applies to them: a skill that does not move a baseline on a realistic pressure scenario is a candidate for removal.
+49 of the 61 skills have no scenario yet: the other generic lifecycle skills (domain modeling, UX, data architecture, ...), and the hand-written migration, merge, and spec-driven ones. They stay, because absence of a test is not evidence of no value, and several are wired into harnesses and agents. The same test applies to them: a skill that does not move a baseline on a realistic pressure scenario is a candidate for removal.
 
 ## Size
 
@@ -67,3 +67,18 @@ The scenarios for the five measured skills are kept in `evals/removed/`. The del
 | Rewritten | 11,132 | 74/79 | 79/79 |
 
 Haiku misses move around between runs (invented or truncated skill names, and confusions between neighbours such as task-breakdown / implementation-planning, retrospective / debugging). Seven descriptions were hand-adjusted after a first rewrite scored 72/79, using this same test set, so the result is slightly optimistic.
+
+## Legacy skills added in 0.5.0
+
+Three scenarios files, 3 runs each, Claude through the local CLI (tools, skills, and connectors disabled), compact skill versus none. Raw replies: `evals/results/claude-sonnet-legacy-skills.md` and `evals/results/claude-haiku-legacy-skills.md`.
+
+| Model | Baseline | With skill |
+|---|---|---|
+| Sonnet | 15/21 | 20/21 |
+| Haiku | 12/21 | 18/21 |
+
+- Clear gains: `migration-strategy` against a big-bang and microservices-by-fashion brief (0/3 to 3/3 on both models), and `legacy-usage-evidence` against a three-week zero-call window (Haiku 1/3 to 3/3).
+- Mixed: `legacy-stack-playbooks` gains on the Adelia and the rounding scenarios, with one miss left on each model.
+- No measurable gain: the Symfony scenario, the risk-order scenario, and the dead-code scenario already pass 3/3 without the skill. The compact skill does not include the `references/` files, so this run measures `SKILL.md` only; the stack references are untested.
+- One scenario regex (`usage-short-window`) was widened after the first run because it rejected correct answers; the numbers above come from the final file.
+- Routing with Haiku: 81/84, one miss on a new query (a Symfony upgrade question routed to `legacy-reverse-engineering`).

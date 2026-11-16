@@ -11,12 +11,12 @@ Keep large migrations honest: progress is counted on the registry, a batch close
 
 ## Workflow
 
-1. Phase 0, registry: `legacy-inventory-registry` for every source; exit when `scripts/sdlc_registry.py check` is clean and the business reviewed abandoned and deferred lines.
-2. Phase 1, batching: assign every registry line to a batch; a batch is a deliverable vertical slice (persistence, port, adapter, route, contract, client, screen, tests). Estimate write actions by field count.
+1. Phase 0, evidence and registry: `legacy-usage-evidence`, then `legacy-inventory-registry` for every source; exit when `scripts/sdlc_registry.py check` is clean and the business reviewed abandoned and deferred lines.
+2. Phase 1, strategy and batching: `migration-strategy` fixes the approach, the risk-ladder order, and the pilot batch; the pilot runs first and its measured results adjust the plan. Then assign every registry line to a batch; a batch is a deliverable vertical slice (persistence, port, adapter, route, contract, client, screen, tests). Estimate write actions by field count.
 3. Phase 2, reverse engineering of the batch: `legacy-reverse-engineering`; exit when R1 rules are confirmed.
 4. Phase 3, contracts and characterization: define interface contracts, then `characterization-testing` against the real legacy; exit when oracles run.
 5. Phase 4, build: implement the slice test-first in an isolated worktree, claiming lines with proof via `scripts/sdlc_registry.py claim`.
-6. Phase 5, close: run `reachability-anti-simulation`, then an independent verifier runs `independent-verification`; only the verifier moves lines to PORTED.
+6. Phase 5, close: run `reachability-anti-simulation`, then an independent verifier runs `independent-verification`; only the verifier moves lines to PORTED. The batch report states one verdict: PROVEN, PARTIALLY_PROVEN, or NOT_PROVEN, lists the zones left unproven, and links the discrepancy register; only PROVEN closes the batch.
 7. Phase 6, capitalize: batch report, anomalies, lessons into the retrospective, and adjust remaining batches.
 8. Report progress from `python scripts/sdlc_registry.py report`, never from what was written; refuse a batch close with unresolved refusals.
 

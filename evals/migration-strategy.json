@@ -1,0 +1,27 @@
+{
+  "skill": "migration-strategy",
+  "scenarios": [
+    {
+      "id": "strategy-bigbang-microservices",
+      "prompt": "We are migrating a 25-year-old billing system. The CTO wants a big-bang switch next March and a microservices target because it is modern. Give me the migration approach. (No repository or tool access in this exercise; answer in text.)",
+      "must": [
+        "(?i)(constraint|driver)",
+        "(?i)(pilot)",
+        "(?i)(rollback|retour|roll back)",
+        "(?i)(modular monolith|justif)"
+      ],
+      "forbid": [
+        "(?i)big.bang is (the )?(best|right|recommended)"
+      ]
+    },
+    {
+      "id": "strategy-order",
+      "prompt": "We have the batches: core ledger posting, customer statements (read-only), partner file exports, month-end batch jobs, and a back-office admin screen. In which order do we migrate them and why? (No repository or tool access in this exercise; answer in text.)",
+      "must": [
+        "(?i)(statement|read.only|report|admin)[\\s\\S]{0,600}(ledger|core)",
+        "(?i)(risk|critical)"
+      ],
+      "forbid": []
+    }
+  ]
+}

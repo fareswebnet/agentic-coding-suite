@@ -8,20 +8,25 @@ A registry in which every line is closed by proof and independent visa, or by a 
 
 ## Sequence
 
-1. `legacy-analyst` freezes the registry for every source (`python scripts/sdlc_registry.py init`, then `check`).
-2. `orchestrator` cuts vertical batches covering every line.
-3. `legacy-analyst` extracts business rules for the batch.
-4. `qa-test-engineer` builds oracles and the differential suite against the real legacy.
-5. `fullstack-builder` implements the slice test-first and claims lines with proof.
-6. `independent-verifier` samples, exercises, mutates, and grants or refuses visas.
-7. `release-manager` rehearses cutover and rollback and holds go/no-go.
-8. `orchestrator` capitalizes lessons and adjusts remaining batches.
+1. `legacy-analyst` gathers usage evidence and proposes what to port, abandon, or defer; the business owner decides.
+2. `solution-architect` fixes the strategy, the risk-ladder order, the coexistence design, and the pilot batch.
+3. `legacy-analyst` freezes the registry for every source (`python scripts/sdlc_registry.py init`, then `check`).
+4. `orchestrator` cuts vertical batches covering every line; the pilot batch runs first.
+5. `legacy-analyst` extracts business rules for the batch; `security-reviewer` records the legacy security baseline.
+6. `qa-test-engineer` builds oracles and the differential suite against the real legacy, and keeps the discrepancy register.
+7. `fullstack-builder` implements the slice test-first and claims lines with proof.
+8. `independent-verifier` samples, exercises, mutates, and grants or refuses visas; the batch verdict is PROVEN, PARTIALLY_PROVEN, or NOT_PROVEN.
+9. `release-manager` rehearses cutover and rollback and holds go/no-go.
+10. `orchestrator` capitalizes lessons and adjusts remaining batches.
 
 ## Gates
 
+- Do not abandon a component without usage evidence over a full business cycle and an owner's signature.
+- Do not scale beyond the pilot batch before its results are measured.
 - Do not build on a source whose registry is not frozen and reviewed.
 - Do not count progress except from `python scripts/sdlc_registry.py report`.
 - Do not let an implementer visa their own lines; the tool refuses it.
+- Do not close a batch whose verdict is not PROVEN or whose discrepancy register has an open entry.
 - Do not cut over without a rehearsed rollback and a named go/no-go owner.
 
 ## Runtime Hints

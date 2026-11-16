@@ -4,10 +4,28 @@ purpose: Migrate or modernize a legacy system in verified vertical batches measu
 entrypoint: orchestrator
 autonomy_level: medium-with-human-gates
 human_gates:
+  - business owner confirms abandonment candidates from usage evidence
   - business owner reviews abandoned and deferred registry lines
   - approve each batch plan and any dependency addition
   - approve destructive data migrations, cutover, and decommissioning
 stages:
+  - id: usage-evidence
+    agent: legacy-analyst
+    skills:
+      - legacy-usage-evidence
+      - legacy-stack-playbooks
+    outputs:
+      - docs/migration/usage-evidence.md
+      - decommission candidates with evidence
+    gate: every abandonment candidate has window evidence and a business owner decision
+  - id: strategy
+    agent: solution-architect
+    skills:
+      - migration-strategy
+    outputs:
+      - docs/migration/strategy.md
+      - batch order and coexistence plan
+    gate: strategy justified by constraints, pilot batch named, big-bang justified or excluded
   - id: registry
     agent: legacy-analyst
     skills:
@@ -32,6 +50,14 @@ stages:
       - business-rule matrix
       - defect and question lists
     gate: R1 rules confirmed by the business or an executed oracle
+  - id: security-baseline
+    agent: security-reviewer
+    skills:
+      - security-privacy-compliance
+    outputs:
+      - legacy security baseline
+      - findings tagged inherited or introduced
+    gate: no inherited vulnerability is reproduced without a recorded decision
   - id: contracts-and-oracles
     agent: qa-test-engineer
     skills:
@@ -80,4 +106,6 @@ stages:
 completion_criteria:
   - every registry line is PORTED, REPLACED, ABANDONED with signer, or DEFERRED to a named batch
   - every PORTED line has proof and a visa from a verifier other than the implementer
+  - the pilot batch has measured results and the strategy was revised from them
+  - every batch report says PROVEN and its discrepancy register has no open entry
   - cutover and rollback were rehearsed

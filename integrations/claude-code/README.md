@@ -66,7 +66,7 @@ Caveats: string checks are a floor and the sample is small. Several failures wit
 ## Claude Code notes
 
 - Skills with side effects (`tasks-to-issues`, `cutover-rollback`, `data-migration-reconciliation`) set `disable-model-invocation: true`, so they only run when you invoke them explicitly with `/coding:<name>` (or `/coding-<name>` when installed standalone).
-- Claude Code shows skill descriptions to the model within a limited budget. The 58 descriptions total about 11,100 characters; if you install many other skills, descriptions may be shortened. Install only the subset you use, or rely on the harnesses and explicit `/sdlc-<name>` calls.
+- Claude Code shows skill descriptions to the model within a limited budget. The 61 descriptions total about 11,900 characters; if you install many other skills, descriptions may be shortened. Install only the subset you use, or rely on the harnesses and explicit `/coding:<name>` calls.
 - Subagents: `--native-roles` writes `.claude/agents/coding-<role>.md` (prefixed to avoid clashing with your own agents); run the `coding-independent-verifier` role as its own subagent so it does not see the builder's reasoning.
 
 ## MCP Connectors

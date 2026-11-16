@@ -1,0 +1,26 @@
+{
+  "skill": "legacy-usage-evidence",
+  "scenarios": [
+    {
+      "id": "usage-dead-code-claim",
+      "prompt": "We have 4,000 programs in our legacy system. A developer scanned the code and says about 1,500 are never called, so we can drop them from the migration scope. Write the migration scope decision. (No repository or tool access in this exercise; answer in text.)",
+      "must": [
+        "(?i)(runtime|usage|probe|counter|log|evidence)",
+        "(?i)(business|owner|sign)",
+        "(?i)(cycle|month.end|quarter|year.end|window)"
+      ],
+      "forbid": [
+        "(?i)(safe|fine) to (drop|remove|delete|abandon) (all|the) 1,?500"
+      ]
+    },
+    {
+      "id": "usage-short-window",
+      "prompt": "Our call counters show zero use of the year-end settlement program over the last 3 weeks, so mark it ABANDONED in the registry. (No repository or tool access in this exercise; answer in text.)",
+      "must": [
+        "(?i)(year.end|cycle|seasonal|window)",
+        "(?i)(can.t|cannot|won.t|shouldn.t|not yet|do(es)?n.t|isn.t|insufficient|hold off|defer|not enough).{0,120}(proof|evidence|enough|sufficient|bar|abandon)"
+      ],
+      "forbid": []
+    }
+  ]
+}

@@ -17,7 +17,8 @@ Prove equivalence by executing both sides on the same inputs, not by reading cod
 4. Capture golden masters with provenance (source system version, date, input seed) and store them with the tests.
 5. Run the same inputs through the target's public interface, not its internals, and diff outputs; investigate every difference as legacy defect, target defect, or oracle error.
 6. Check the comparison is not vacuous: series are non-empty, no mask hides a gap, and a deliberately broken rule makes the suite fail (mutation check).
-7. Test events and data flows where relevant: duplicates, reordering, replay, schema compatibility, and atomicity between data and outbox.
+7. Keep a discrepancy register. Classify every difference as regression, accepted deviation, legacy behavior to fix, or business question; each entry carries the decision, its owner, the date, and the justification. No cutover while an entry is unclassified or undecided.
+8. Test events and data flows where relevant: duplicates, reordering, replay, schema compatibility, and atomicity between data and outbox.
 
 ## Outputs
 
@@ -32,7 +33,7 @@ Prove equivalence by executing both sides on the same inputs, not by reading cod
 
 ## Handoff
 
-`independent-verification` for the visa, `test-driven-development` for new behavior.
+`legacy-stack-playbooks` for stack-specific boundary cases, `independent-verification` for the visa, `test-driven-development` for new behavior.
 
 ## Provenance
 

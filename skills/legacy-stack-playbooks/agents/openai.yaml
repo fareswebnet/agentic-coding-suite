@@ -1,0 +1,4 @@
+interface:
+  display_name: "SDLC Legacy Stack Playbooks"
+  short_description: "Stack-specific traps and extractors"
+  default_prompt: "Use $legacy-stack-playbooks to apply the stack-specific playbook for the named legacy or target technology."

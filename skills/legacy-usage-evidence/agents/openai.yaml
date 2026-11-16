@@ -1,0 +1,4 @@
+interface:
+  display_name: "SDLC Legacy Usage Evidence"
+  short_description: "Prove what legacy code is really used"
+  default_prompt: "Use $legacy-usage-evidence to find out with runtime evidence what the legacy system really uses, and get signed keep, fix, abandon, or defer decisions."

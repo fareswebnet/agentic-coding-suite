@@ -14,6 +14,7 @@ skills:
   - definition-of-done
   - characterization-testing
   - product-analytics
+  - legacy-stack-playbooks
 inputs:
   - PRD and BDD examples
   - implementation diff

@@ -2,9 +2,9 @@
 
 *Reinforcement for AI-driven delivery: evidence, verification, no unproven claims.*
 
-Agentic Coding Suite plugs into your existing delivery process, not in place of it: an agent skill suite (58 skills, agent roles, harnesses, evals) for the full product-tech software lifecycle, with independent verification and measured effect.
+Agentic Coding Suite plugs into your existing delivery process, not in place of it: an agent skill suite (61 skills, agent roles, harnesses, evals) for the full product-tech software lifecycle, with independent verification and measured effect.
 
-This repository packages 58 skills and optional presets to help a team move from idea to production learning:
+This repository packages 61 skills and optional presets to help a team move from idea to production learning:
 
 `idea -> discovery -> PRD -> domain model -> bounded contexts -> BDD -> UX/UI -> architecture/data -> contracts -> backlog -> implementation -> tests -> release -> observability -> incidents/support -> improvement`
 

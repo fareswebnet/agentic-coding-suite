@@ -57,3 +57,6 @@ cutover-rollback,migration,SDLC Cutover And Rollback,"Rehearse go-live, parallel
 performance-budgets,performance-cost,SDLC Performance Budgets,Set and enforce measurable performance budgets
 accessibility-engineering,design,SDLC Accessibility Engineering,Build and verify WCAG-conformant interfaces
 api-versioning-deprecation,architecture,SDLC API Versioning And Deprecation,Evolve APIs without breaking consumers
+legacy-usage-evidence,migration,SDLC Legacy Usage Evidence,Prove what legacy code is really used
+migration-strategy,migration,SDLC Migration Strategy,"Choose approach, order, and pilot"
+legacy-stack-playbooks,migration,SDLC Legacy Stack Playbooks,Stack-specific traps and extractors

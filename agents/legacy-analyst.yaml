@@ -10,6 +10,8 @@ skills:
   - legacy-inventory-registry
   - legacy-reverse-engineering
   - system-merge
+  - legacy-usage-evidence
+  - legacy-stack-playbooks
 inputs:
   - source repositories and schemas
   - framework route and schema listings

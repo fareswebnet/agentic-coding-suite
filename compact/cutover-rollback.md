@@ -7,12 +7,12 @@ Goal: Make the switch reversible, rehearsed, and measured, so go-live is a decis
 Steps:
 1. Choose the strategy: strangler by route or tenant, parallel run with comparison, or big-bang with justification; define the unit…
 2. For parallel runs, send the same traffic to both systems, compare outputs automatically within the contract tolerances, and…
-3. Prepare switches: feature flags or routing rules, data sync direction, freeze windows, and communication plan.
+3. Keep the interface contracts of the old system unchanged for every consumer during coexistence; any change goes through…
 4. Rehearse the cutover and rollback end to end on production-shaped data; time each step and record the point of no return.
 5. Set exit gates from `observability-reliability`: error rate, latency budget (`performance-budgets`), reconciliation clean…
 6. Execute in stages (internal, pilot tenants, wider), checking gates between stages; rollback on a gate breach without debate.
 7. Hold go/no-go with a named owner, and keep the legacy read-only until the retention decision is recorded.
-8. After cutover, monitor a defined period, then decommission the old system only with sign-off and archived data.
+8. After cutover, monitor a defined period.
 
 Never:
 - Production deployment and customer communication need explicit human approval.

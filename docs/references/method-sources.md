@@ -38,6 +38,7 @@ The migration layer generalizes, in English and project-agnostic form, the pract
 | Skill | Basis |
 |---|---|
 | `legacy-inventory-registry`, `migration-batch-orchestration` | Registry-driven migration programs |
+| `legacy-usage-evidence`, `migration-strategy`, `legacy-stack-playbooks` | Gap analysis against an internal modernization kit (usage probes, strategy typology, risk-ladder ordering, pilot then industrialization, discrepancy register, stack-specific playbooks); ideas adapted in original wording, see `docs/references/legacy-method-gap-analysis.md`; Adelia facts (generates RPG ILE, Java, C, HTML5/CSS3) from Hardis product pages, everything else in the stack references is general platform knowledge |
 | `legacy-reverse-engineering`, `characterization-testing` | Spec mining, golden master, differential testing |
 | `independent-verification`, `reachability-anti-simulation` | Independent audit, mutation testing, ratchet gates |
 | `system-merge`, `data-migration-reconciliation`, `cutover-rollback` | Multi-source convergence, data reconciliation, strangler and parallel run |
