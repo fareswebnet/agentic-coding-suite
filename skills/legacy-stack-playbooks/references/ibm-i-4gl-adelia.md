@@ -1,6 +1,6 @@
 # IBM i generated applications: Adelia and similar 4GL or CASE tools
 
-Status: unvalidated against a live system. Adelia facts come from vendor pages (Hardis: the platform generates RPG ILE, Java, C, and HTML5/CSS3 depending on the module); anything else below is a checklist of questions to confirm with the tool's owners. Read `ibm-i.md` first; it still applies to the generated side.
+Status: unvalidated against a live system. Adelia facts come from Hardis pages and a trade-press article (RPG ILE for IBM i, Java, C, and HTML5/CSS3 depending on the module; a quality module with a Sonar plug-in in version 12); they are vendor statements, not checked on a real installation; anything else below is a checklist of questions to confirm with the tool's owners. Read `ibm-i.md` first; it still applies to the generated side.
 
 ## The key difference with hand-written RPG
 
@@ -28,6 +28,6 @@ The business logic lives in the tool's repository (models, screens, actions, and
 - If the tool also generates a target you could keep (for example Java or web output), evaluate it as a rehost or transform option in `migration-strategy`, and test its output with the same oracles as hand-written code.
 - Other generated-code tools on IBM i (for instance Synon or 2E, LANSA) follow the same pattern; confirm their export and generator conventions before relying on this list.
 
-## Oracle design
+## Test-oracle design
 
 Run the generated application with the same captured inputs as for RPG, and compare database files, queues, spooled output, and messages. Re-run after a regeneration with a new generator version to see whether behavior moves.
