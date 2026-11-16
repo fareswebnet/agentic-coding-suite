@@ -15,7 +15,7 @@ This writes skills to `.agents/skills`, the kit to `.sdlc/`, and a managed block
 ```bash
 python scripts/skill_index.py                                   # one-line index for the system prompt
 python scripts/skill_index.py --select "migrate legacy system"  # best matches by keyword
-python scripts/skill_index.py --skill sdlc-task-breakdown       # full skill text to load
+python scripts/skill_index.py --skill task-breakdown       # full skill text to load
 ```
 
 Load one skill at a time and state the exact next step.
@@ -29,7 +29,7 @@ Load one skill at a time and state the exact next step.
 `scripts/sdlc_runner.py` drives any OpenAI-compatible endpoint (Ollama, vLLM, llama.cpp server, LM Studio). It puts `AGENTS.md` and the chosen compact skills in the system prompt, applies `FILE:` blocks inside `--workdir`, and lets scripts be the gate: a failing gate command is fed back for another round.
 
 ```bash
-python scripts/sdlc_runner.py --model qwen2.5-coder --skill sdlc-test-driven-development \
+python scripts/sdlc_runner.py --model qwen2.5-coder --skill test-driven-development \
   --task "Add a slugify function with tests" --workdir ./app --apply \
   --gate "python -m unittest" --max-rounds 3 --out run.md
 ```

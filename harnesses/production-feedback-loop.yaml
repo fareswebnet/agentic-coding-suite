@@ -11,9 +11,9 @@ stages:
   - id: signal-intake
     agent: devops-sre
     skills:
-      - sdlc-incident-support-feedback
-      - sdlc-observability-reliability
-      - sdlc-product-analytics
+      - incident-support-feedback
+      - observability-reliability
+      - product-analytics
     outputs:
       - incident or feedback summary
       - affected journeys and metrics
@@ -21,8 +21,8 @@ stages:
   - id: root-cause
     agent: devops-sre
     skills:
-      - sdlc-observability-reliability
-      - sdlc-scalability-cost
+      - observability-reliability
+      - scalability-cost
     outputs:
       - docs/operations/incidents/postmortem-template.md
       - reliability or cost findings
@@ -30,16 +30,16 @@ stages:
   - id: product-impact
     agent: product-strategist
     skills:
-      - sdlc-idea-framing
-      - sdlc-product-analytics
+      - idea-framing
+      - product-analytics
     outputs:
       - roadmap or KPI impact notes
     gate: product decision is tied to measured user impact
   - id: fix-plan
     agent: solution-architect
     skills:
-      - sdlc-delivery-retrospective
-      - sdlc-implementation-planning
+      - delivery-retrospective
+      - implementation-planning
     outputs:
       - remediation plan
       - debt or architecture evolution item
@@ -47,10 +47,10 @@ stages:
   - id: implementation
     agent: fullstack-builder
     skills:
-      - sdlc-systematic-debugging
-      - sdlc-code-change-execution
-      - sdlc-test-driven-development
-      - sdlc-test-strategy
+      - systematic-debugging
+      - code-change-execution
+      - test-driven-development
+      - test-strategy
     outputs:
       - fix diff
       - regression tests
@@ -59,8 +59,8 @@ stages:
   - id: release-and-learn
     agent: release-manager
     skills:
-      - sdlc-definition-of-done
-      - sdlc-documentation
+      - definition-of-done
+      - documentation
     outputs:
       - release and follow-up notes
       - updated runbook or documentation

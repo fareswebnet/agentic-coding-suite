@@ -6,7 +6,7 @@ Scores are deterministic string checks, a floor and not a quality judgement.
 
   python scripts/run_evals.py --model llama3.1 --base-url http://localhost:11434/v1
   python scripts/run_evals.py --model sonnet --base-url claude-cli --workers 4   # local Claude Code CLI, no API key handling
-  python scripts/run_evals.py --model qwen2.5 --skill sdlc-test-driven-development --runs 3 --out evals/results/qwen2.5.md
+  python scripts/run_evals.py --model qwen2.5 --skill test-driven-development --runs 3 --out evals/results/qwen2.5.md
 """
 
 from __future__ import annotations
@@ -35,7 +35,7 @@ def score(reply: str, scenario: dict) -> tuple[bool, list[str]]:
 
 def load_scenarios(only: str | None, evals_dir: Path = ROOT / "evals") -> list[tuple[str, dict]]:
     items = []
-    for path in sorted(evals_dir.glob("sdlc-*.json")):
+    for path in sorted(evals_dir.glob("*.json")):
         data = json.loads(path.read_text())
         if only and data["skill"] != only:
             continue
@@ -49,7 +49,7 @@ def main() -> int:
     parser.add_argument("--base-url", default=llm_client.DEFAULT_BASE_URL)
     parser.add_argument("--api-key")
     parser.add_argument("--skill")
-    parser.add_argument("--evals-dir", type=Path, default=ROOT / "evals", help="directory holding sdlc-*.json scenario files")
+    parser.add_argument("--evals-dir", type=Path, default=ROOT / "evals", help="directory holding *.json scenario files")
     parser.add_argument("--runs", type=int, default=1, help="repeat each scenario to see variance")
     parser.add_argument("--full-skills", action="store_true")
     parser.add_argument("--workers", type=int, default=1, help="parallel calls")

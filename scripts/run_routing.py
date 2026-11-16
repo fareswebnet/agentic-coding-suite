@@ -23,8 +23,8 @@ SYSTEM = "You route requests to skills. Reply with exactly one skill name from t
 
 def load_descriptions(override: Path | None) -> dict[str, str]:
     found = {}
-    for path in sorted((ROOT / "skills").glob("sdlc-*/SKILL.md")):
-        found[path.parent.name.removeprefix("sdlc-")] = re.search(r"^description:\s*(.+)$", path.read_text(), re.M).group(1).strip()
+    for path in sorted((ROOT / "skills").glob("*/SKILL.md")):
+        found[path.parent.name] = re.search(r"^description:\s*(.+)$", path.read_text(), re.M).group(1).strip()
     if override:
         found.update(json.loads(override.read_text()))
     return found

@@ -12,9 +12,9 @@ The model replies with files as:
     ```
 
 Examples:
-  python scripts/sdlc_runner.py --model qwen2.5-coder --skill sdlc-test-driven-development \\
+  python scripts/sdlc_runner.py --model qwen2.5-coder --skill test-driven-development \\
       --task "Add a slugify function with tests" --workdir ./app --apply --gate "python -m unittest" --max-rounds 3
-  python scripts/sdlc_runner.py --model llama3.1 --skill sdlc-spec-clarification --task-file notes.md
+  python scripts/sdlc_runner.py --model llama3.1 --skill spec-clarification --task-file notes.md
 
 Safety: file writes are confined to --workdir; gate commands are the ones you pass and run without a shell.
 """

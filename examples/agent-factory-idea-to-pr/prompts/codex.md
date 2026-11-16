@@ -1,7 +1,7 @@
 # Codex Prompt
 
 ```text
-Use sdlc-delivery-orchestrator and sdlc-ai-coding-governance.
+Use delivery-orchestrator and ai-coding-governance.
 
 Run harnesses/app-idea-to-production.yaml for this app idea:
 

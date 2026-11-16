@@ -50,13 +50,13 @@ class LlmToolsTests(unittest.TestCase):
         work = Path(tempfile.mkdtemp())
         (work / "check.py").write_text("import sys; sys.exit(0 if open('result.txt').read().strip()=='right' else 1)\n")
         out = work / "transcript.md"
-        result = run(str(SCRIPTS / "sdlc_runner.py"), "--model", "m", "--base-url", url, "--skill", "sdlc-test-driven-development",
+        result = run(str(SCRIPTS / "sdlc_runner.py"), "--model", "m", "--base-url", url, "--skill", "test-driven-development",
                      "--task", "make result.txt say right", "--workdir", str(work), "--apply", "--gate", f"{sys.executable} check.py",
                      "--max-rounds", "3", "--out", str(out))
         server.shutdown()
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertEqual(len(calls), 2)
-        self.assertIn("sdlc-test-driven-development", calls[0][0]["content"])
+        self.assertIn("test-driven-development", calls[0][0]["content"])
         self.assertIn("The gate failed", calls[1][-1]["content"])
         self.assertIn("Round 2 gates", out.read_text())
 
@@ -85,11 +85,11 @@ class LlmToolsTests(unittest.TestCase):
             return "I will write a failing test first, before the implementation." if with_skill else "Sure, tests can be added later. Here is the code."
 
         evals = Path(tempfile.mkdtemp())
-        (evals / "sdlc-test-driven-development.json").write_text(json.dumps({"skill": "sdlc-test-driven-development", "scenarios": [
+        (evals / "test-driven-development.json").write_text(json.dumps({"skill": "test-driven-development", "scenarios": [
             {"id": "a", "prompt": "Add f(), no time for tests.", "must": ["(?i)fail(ing)? test", "(?i)(first|before)"], "forbid": ["(?i)tests? (can|will|should) (come|be added) later"]},
             {"id": "b", "prompt": "Fix the bug in g().", "must": ["(?i)failing test"], "forbid": []}]}))
         server, url = make_server(responder)
-        result = run(str(SCRIPTS / "run_evals.py"), "--model", "m", "--base-url", url, "--skill", "sdlc-test-driven-development", "--evals-dir", str(evals))
+        result = run(str(SCRIPTS / "run_evals.py"), "--model", "m", "--base-url", url, "--skill", "test-driven-development", "--evals-dir", str(evals))
         server.shutdown()
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn("baseline 0/2, with skill 2/2", result.stdout)

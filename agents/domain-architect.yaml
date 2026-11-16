@@ -7,9 +7,9 @@ recommended_runtimes:
   - claude-code
   - hermes
 skills:
-  - sdlc-domain-modeling
-  - sdlc-bounded-context-map
-  - sdlc-bdd-specifications
+  - domain-modeling
+  - bounded-context-map
+  - bdd-specifications
 inputs:
   - product brief and PRD
   - business rules and edge cases

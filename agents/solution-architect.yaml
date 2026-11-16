@@ -7,12 +7,12 @@ recommended_runtimes:
   - claude-code
   - hermes
 skills:
-  - sdlc-architecture-rfc
-  - sdlc-application-architecture
-  - sdlc-data-architecture
-  - sdlc-security-privacy-compliance
-  - sdlc-data-migration-reconciliation
-  - sdlc-api-versioning-deprecation
+  - architecture-rfc
+  - application-architecture
+  - data-architecture
+  - security-privacy-compliance
+  - data-migration-reconciliation
+  - api-versioning-deprecation
 inputs:
   - PRD, BDD examples, and context map
   - current repo architecture

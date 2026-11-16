@@ -7,9 +7,9 @@ recommended_runtimes:
   - claude-code
   - hermes
 skills:
-  - sdlc-legacy-inventory-registry
-  - sdlc-legacy-reverse-engineering
-  - sdlc-system-merge
+  - legacy-inventory-registry
+  - legacy-reverse-engineering
+  - system-merge
 inputs:
   - source repositories and schemas
   - framework route and schema listings

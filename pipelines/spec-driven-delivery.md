@@ -8,7 +8,7 @@ A branch or PR where each requirement id maps to a scenario, a task, a test, and
 
 ## Sequence
 
-1. `orchestrator` sets principles and the agent context (`sdlc-project-constitution`, `sdlc-agent-context-engineering`).
+1. `orchestrator` sets principles and the agent context (`project-constitution`, `agent-context-engineering`).
 2. `product-strategist` runs the design gate and clarification.
 3. `qa-test-engineer` checks requirement quality and tags BDD scenarios with ids.
 4. `solution-architect` plans, breaks down tasks, and runs `python scripts/sdlc_trace.py`.

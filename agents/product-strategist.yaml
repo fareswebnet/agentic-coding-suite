@@ -7,11 +7,11 @@ recommended_runtimes:
   - claude-code
   - hermes
 skills:
-  - sdlc-idea-framing
-  - sdlc-market-user-discovery
-  - sdlc-prd-requirements
-  - sdlc-design-brainstorming
-  - sdlc-spec-clarification
+  - idea-framing
+  - market-user-discovery
+  - prd-requirements
+  - design-brainstorming
+  - spec-clarification
 inputs:
   - founder idea
   - target users and constraints

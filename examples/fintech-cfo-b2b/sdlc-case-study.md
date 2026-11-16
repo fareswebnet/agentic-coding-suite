@@ -8,20 +8,20 @@ A CFO copilot for startups that tracks burn, runway, forecast, budget variance, 
 
 ## Suggested Skill Flow
 
-1. `sdlc-idea-framing`
-2. `sdlc-market-user-discovery`
-3. `sdlc-idea-framing`
-4. `sdlc-domain-modeling`
-5. `sdlc-bounded-context-map`
-6. `sdlc-bdd-specifications`
-7. `sdlc-ux-product-design`
-8. `sdlc-data-architecture`
-9. `sdlc-security-privacy-compliance`
-10. `sdlc-security-privacy-compliance`
-11. `sdlc-ai-product-architecture`
-12. `sdlc-delivery-roadmap-backlog`
-13. `sdlc-definition-of-done`
-14. `sdlc-observability-reliability`
+1. `idea-framing`
+2. `market-user-discovery`
+3. `idea-framing`
+4. `domain-modeling`
+5. `bounded-context-map`
+6. `bdd-specifications`
+7. `ux-product-design`
+8. `data-architecture`
+9. `security-privacy-compliance`
+10. `security-privacy-compliance`
+11. `ai-product-architecture`
+12. `delivery-roadmap-backlog`
+13. `definition-of-done`
+14. `observability-reliability`
 
 ## Candidate Bounded Contexts
 

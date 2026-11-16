@@ -1,11 +1,11 @@
 ## AI SDLC method
 
-This repository uses the AI SDLC suite (kit location: `{{KIT}}`). Skills are named `sdlc-*`; invoke them by name in your runtime (for example `$sdlc-task-breakdown` in Codex, `/sdlc-task-breakdown` in Claude Code, or "use the sdlc-task-breakdown skill" anywhere else).
+This repository uses the AI SDLC suite (kit location: `{{KIT}}`). Skills are installed as `coding-<name>`; invoke them by name in your runtime (for example `$coding-task-breakdown` in Codex, `/coding-task-breakdown` in Claude Code, or "use the coding-task-breakdown skill" anywhere else).
 
 ### Always
 - Before coding, make expected behavior, affected architecture and data boundaries, validation commands, and rollback notes explicit.
-- Write a failing test before behavior changes, and show fresh evidence before saying work is done (`sdlc-test-driven-development`, `sdlc-verification-before-completion`).
-- Work in an isolated branch or worktree (`sdlc-branch-worktree-lifecycle`).
+- Write a failing test before behavior changes, and show fresh evidence before saying work is done (`test-driven-development`, `verification-before-completion`).
+- Work in an isolated branch or worktree (`branch-worktree-lifecycle`).
 - Keep requirement ids (`FR-001`, `NFR-001`, `SEC-001`, `AI-001`) in specs, scenarios, tasks, and tests; check with `python {{KIT}}/scripts/sdlc_trace.py --target .`.
 
 ### Pick the workflow

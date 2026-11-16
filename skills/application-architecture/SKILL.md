@@ -1,0 +1,26 @@
+---
+name: application-architecture
+description: Design application structure: modular monolith, layered, hexagonal, CQRS, event-driven, module boundaries, dependency rules. Use after domain modeling and before implementation or large refactors.
+---
+
+# SDLC Application Architecture
+
+## Purpose
+
+Choose a structure the team can build, test, and evolve.
+
+## Workflow
+
+1. Start from bounded contexts, domain rules, runtime constraints, and team ownership.
+2. Choose the simplest architecture style that satisfies quality attributes and change pressure.
+3. Define modules, layers, dependency direction, adapters, services, jobs, and integration points.
+4. Document transaction boundaries, failure handling, and deployment implications.
+5. Create ADRs for choices that constrain future code.
+
+## Outputs
+
+- Primary artifacts: `docs/architecture/application-architecture.md, docs/architecture/module-boundaries.md, docs/architecture/adr/`.
+
+## Guardrails
+
+- Default to modular monolith plus clear boundaries unless scale, teams, regulation, or runtime constraints justify more distributed complexity.

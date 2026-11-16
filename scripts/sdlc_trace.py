@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Check requirement -> scenario -> task -> test traceability in a repo-first SDLC docs tree.
 
-Conventions (see skills/sdlc-traceability-ledger):
+Conventions (see skills/traceability-ledger):
   requirement ids   FR-001, NFR-001, SEC-001, AI-001 defined as a heading or list item in docs/product/**/*.md
   scenarios         Gherkin/markdown files under docs/product/ tagged with @FR-001
   tasks             docs/engineering/tasks.md lines: - [ ] T001 [P] [US1] (FR-001) Action in path

@@ -12,7 +12,7 @@ Mirror the suite into the OpenClaw workspace skills directory:
 
 ```bash
 mkdir -p ~/.openclaw/workspace/skills
-cp -R skills/sdlc-* ~/.openclaw/workspace/skills/
+cp -R skills/* ~/.openclaw/workspace/skills/
 ```
 
 Add the agent and harness folders as workspace context files or keep them in the target repository.
@@ -22,7 +22,7 @@ Add the agent and harness folders as workspace context files or keep them in the
 Add or update workspace `AGENTS.md` with:
 
 ```md
-Use `sdlc-rebar` for full software delivery.
+Use `agentic-coding-suite` for full software delivery.
 
 Route work through:
 - `harnesses/app-idea-to-production.yaml`

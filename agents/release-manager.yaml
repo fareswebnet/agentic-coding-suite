@@ -6,11 +6,11 @@ recommended_runtimes:
   - codex
   - hermes
 skills:
-  - sdlc-definition-of-done
-  - sdlc-observability-reliability
-  - sdlc-incident-support-feedback
-  - sdlc-product-analytics
-  - sdlc-cutover-rollback
+  - definition-of-done
+  - observability-reliability
+  - incident-support-feedback
+  - product-analytics
+  - cutover-rollback
 inputs:
   - approved PR or release candidate
   - CI output

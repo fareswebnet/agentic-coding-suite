@@ -22,6 +22,7 @@ from pathlib import Path
 SUITE = Path(__file__).resolve().parents[1]
 KIT_DIRS = ["harnesses", "pipelines", "agents", "presets", "scripts", "templates", "data", "docs/references"]
 BLOCK = ("<!-- sdlc:begin -->", "<!-- sdlc:end -->")
+PREFIX = "coding-"  # standalone installs have no plugin namespace; avoids clashing with built-ins such as /code-review
 ROLES = ("<!-- sdlc-roles:begin -->", "<!-- sdlc-roles:end -->")
 
 
@@ -98,8 +99,8 @@ def main() -> int:
     target = Path(args.target).expanduser().resolve()
     dest = skills_dest(args.runtime, args.scope, target, Path(args.home))
     installed = skipped = 0
-    for skill in sorted((SUITE / "skills").glob("sdlc-*")):
-        out = dest / skill.name
+    for skill in sorted(p for p in (SUITE / "skills").iterdir() if (p / "SKILL.md").exists()):
+        out = dest / f"{PREFIX}{skill.name}"
         if out.exists() or out.is_symlink():
             if not args.force:
                 skipped += 1
@@ -110,9 +111,15 @@ def main() -> int:
         if not args.dry_run:
             out.parent.mkdir(parents=True, exist_ok=True)
             if args.mode == "link":
-                out.symlink_to(skill)
+                # Real folder so SKILL.md can carry the prefixed name; everything else stays a live link to the suite.
+                out.mkdir()
+                for child in skill.iterdir():
+                    if child.name != "SKILL.md":
+                        (out / child.name).symlink_to(child)
             else:
                 shutil.copytree(skill, out)
+            md = out / "SKILL.md"
+            md.write_text(re.sub(r"^name:\s*.+$", f"name: {out.name}", (skill / "SKILL.md").read_text(), count=1, flags=re.M))
         installed += 1
     print(f"skills: {installed} installed, {skipped} skipped (use --force to overwrite) in {dest}")
 
@@ -139,12 +146,12 @@ def main() -> int:
             raise SystemExit("--native-roles is only available for --runtime claude")
         for path in sorted((SUITE / "agents").glob("*.yaml")):
             role = parse_role(path)
-            body = [f"---", f"name: sdlc-{role['id']}", f"description: {role.get('purpose', role['id'])}", "---", "",
+            body = [f"---", f"name: {PREFIX}{role['id']}", f"description: {role.get('purpose', role['id'])}", "---", "",
                     f"You are the {role.get('name', role['id'])} role of the AI SDLC suite.", "",
                     "Use these skills: " + ", ".join(role["lists"].get("skills", [])) + ".", "", "Gates:"]
             body += [f"- {g}" for g in role["lists"].get("gates", [])]
-            body += ["", "Hand off to: " + ", ".join("sdlc-" + h for h in role["lists"].get("handoffs", [])) + "."]
-            write(target / ".claude" / "agents" / f"sdlc-{role['id']}.md", "\n".join(body) + "\n", args.dry_run)
+            body += ["", "Hand off to: " + ", ".join(PREFIX + h for h in role["lists"].get("handoffs", [])) + "."]
+            write(target / ".claude" / "agents" / f"{PREFIX}{role['id']}.md", "\n".join(body) + "\n", args.dry_run)
     return 0
 
 

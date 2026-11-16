@@ -50,7 +50,7 @@ def compact(skill_md: Path) -> str:
 def build() -> dict[str, str]:
     files = {}
     index = ["# Compact skill index", ""]
-    for path in sorted((ROOT / "skills").glob("sdlc-*/SKILL.md")):
+    for path in sorted((ROOT / "skills").glob("*/SKILL.md")):
         name = path.parent.name
         files[f"{name}.md"] = compact(path)
         desc = re.search(r"^description:\s*(.+)$", path.read_text(), re.M).group(1).strip()

@@ -24,7 +24,7 @@ Only `AGENTS.md` is needed. `--agents-md` writes a managed block (between `sdlc:
 
 ## Using the suite
 
-- Mention the skill by name: `use sdlc-spec-clarification on docs/product/prd.md`.
+- Mention the skill by name: `use spec-clarification on docs/product/prd.md`.
 - Run a harness: `follow harnesses/spec-driven-delivery.yaml for this feature`.
 - Subagents: run a role from `agents/` as a subagent; if you cannot, follow `docs/references/runtime-capabilities.md`.
 

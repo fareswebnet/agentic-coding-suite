@@ -16,7 +16,7 @@ For repo-scoped use (skills, kit, and `AGENTS.md` block):
 python scripts/install.py --runtime codex --target /path/to/repo --agents-md --with-kit
 ```
 
-Codex invokes skills with `$sdlc-<name>`; the per-skill `agents/openai.yaml` supplies display metadata.
+Codex invokes skills with `$coding-<name>`; the per-skill `agents/openai.yaml` supplies display metadata.
 
 ## Project Instructions
 
@@ -40,7 +40,7 @@ For autonomous work, follow:
 ## Interactive Flow
 
 ```text
-Use sdlc-delivery-orchestrator.
+Use delivery-orchestrator.
 Run the app-idea-to-production harness for this idea:
 <idea>
 Create the product docs, architecture plan, implementation plan, then implement the first vertical slice in a worktree.
@@ -53,7 +53,7 @@ Use `codex exec` for deterministic stages in CI or local scripts:
 
 ```bash
 codex exec --sandbox workspace-write \
-  "Use sdlc-code-review to review the current diff against docs/product/prd.md and docs/product/bdd."
+  "Use code-review to review the current diff against docs/product/prd.md and docs/product/bdd."
 ```
 
 Keep scripted runs narrow. Use separate runs for product docs, architecture review, implementation, QA, and code review when context would otherwise become noisy.

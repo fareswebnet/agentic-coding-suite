@@ -11,8 +11,8 @@ stages:
   - id: principles
     agent: orchestrator
     skills:
-      - sdlc-project-constitution
-      - sdlc-agent-context-engineering
+      - project-constitution
+      - agent-context-engineering
     outputs:
       - docs/governance/constitution.md
       - repo instruction file
@@ -20,8 +20,8 @@ stages:
   - id: design
     agent: product-strategist
     skills:
-      - sdlc-design-brainstorming
-      - sdlc-spec-clarification
+      - design-brainstorming
+      - spec-clarification
     outputs:
       - approved design
       - clarified spec with requirement ids
@@ -29,8 +29,8 @@ stages:
   - id: spec-quality
     agent: qa-test-engineer
     skills:
-      - sdlc-requirements-checklist
-      - sdlc-bdd-specifications
+      - requirements-checklist
+      - bdd-specifications
     outputs:
       - requirements checklist
       - tagged BDD scenarios
@@ -38,9 +38,9 @@ stages:
   - id: plan-and-tasks
     agent: solution-architect
     skills:
-      - sdlc-implementation-planning
-      - sdlc-task-breakdown
-      - sdlc-traceability-ledger
+      - implementation-planning
+      - task-breakdown
+      - traceability-ledger
     outputs:
       - docs/engineering/implementation-plan.md
       - docs/engineering/tasks.md
@@ -48,8 +48,8 @@ stages:
   - id: consistency
     agent: orchestrator
     skills:
-      - sdlc-cross-artifact-analysis
-      - sdlc-tasks-to-issues
+      - cross-artifact-analysis
+      - tasks-to-issues
     outputs:
       - analysis report
       - optional issue mapping
@@ -57,10 +57,10 @@ stages:
   - id: build
     agent: fullstack-builder
     skills:
-      - sdlc-branch-worktree-lifecycle
-      - sdlc-test-driven-development
-      - sdlc-subagent-driven-execution
-      - sdlc-systematic-debugging
+      - branch-worktree-lifecycle
+      - test-driven-development
+      - subagent-driven-execution
+      - systematic-debugging
     outputs:
       - commits tied to task ids
       - failing-then-passing tests
@@ -68,8 +68,8 @@ stages:
   - id: verify
     agent: qa-test-engineer
     skills:
-      - sdlc-verification-before-completion
-      - sdlc-definition-of-done
+      - verification-before-completion
+      - definition-of-done
     outputs:
       - verification log
       - definition-of-done evidence
@@ -77,8 +77,8 @@ stages:
   - id: review
     agent: code-reviewer
     skills:
-      - sdlc-code-review
-      - sdlc-receiving-code-review
+      - code-review
+      - receiving-code-review
     outputs:
       - review findings
       - merge decision
@@ -86,8 +86,8 @@ stages:
   - id: converge
     agent: orchestrator
     skills:
-      - sdlc-spec-convergence
-      - sdlc-delivery-retrospective
+      - spec-convergence
+      - delivery-retrospective
     outputs:
       - appended tasks for remaining work
       - retrospective actions

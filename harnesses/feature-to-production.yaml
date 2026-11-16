@@ -10,9 +10,9 @@ stages:
   - id: request-triage
     agent: orchestrator
     skills:
-      - sdlc-delivery-orchestrator
-      - sdlc-prd-requirements
-      - sdlc-spec-clarification
+      - delivery-orchestrator
+      - prd-requirements
+      - spec-clarification
     outputs:
       - feature brief
       - impacted artifact list
@@ -20,8 +20,8 @@ stages:
   - id: behavior-and-impact
     agent: domain-architect
     skills:
-      - sdlc-bdd-specifications
-      - sdlc-bounded-context-map
+      - bdd-specifications
+      - bounded-context-map
     outputs:
       - updated BDD examples
       - context and ownership impact notes
@@ -29,11 +29,11 @@ stages:
   - id: technical-plan
     agent: solution-architect
     skills:
-      - sdlc-implementation-planning
-      - sdlc-task-breakdown
-      - sdlc-cross-artifact-analysis
-      - sdlc-data-architecture
-      - sdlc-api-versioning-deprecation
+      - implementation-planning
+      - task-breakdown
+      - cross-artifact-analysis
+      - data-architecture
+      - api-versioning-deprecation
     outputs:
       - docs/engineering/implementation-plan.md
       - migration and contract notes when needed
@@ -41,9 +41,9 @@ stages:
   - id: code
     agent: fullstack-builder
     skills:
-      - sdlc-code-change-execution
-      - sdlc-test-driven-development
-      - sdlc-verification-before-completion
+      - code-change-execution
+      - test-driven-development
+      - verification-before-completion
     outputs:
       - implementation diff
       - tests
@@ -52,14 +52,14 @@ stages:
   - id: verify
     agent: qa-test-engineer
     skills:
-      - sdlc-test-strategy
+      - test-strategy
     outputs:
       - acceptance and regression evidence
     gate: critical flows are tested
   - id: review
     agent: code-reviewer
     skills:
-      - sdlc-code-review
+      - code-review
     outputs:
       - review findings
       - merge decision
@@ -67,7 +67,7 @@ stages:
   - id: release
     agent: release-manager
     skills:
-      - sdlc-definition-of-done
+      - definition-of-done
     outputs:
       - release notes
       - rollout and rollback notes

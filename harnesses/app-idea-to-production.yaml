@@ -12,8 +12,8 @@ stages:
   - id: intake
     agent: product-strategist
     skills:
-      - sdlc-idea-framing
-      - sdlc-market-user-discovery
+      - idea-framing
+      - market-user-discovery
     outputs:
       - docs/product/problem-statement.md
       - docs/product/vision.md
@@ -22,7 +22,7 @@ stages:
   - id: specification
     agent: product-strategist
     skills:
-      - sdlc-prd-requirements
+      - prd-requirements
     outputs:
       - docs/product/prd.md
       - docs/product/requirements-traceability.md
@@ -30,9 +30,9 @@ stages:
   - id: domain-and-behavior
     agent: domain-architect
     skills:
-      - sdlc-domain-modeling
-      - sdlc-bounded-context-map
-      - sdlc-bdd-specifications
+      - domain-modeling
+      - bounded-context-map
+      - bdd-specifications
     outputs:
       - docs/architecture/domain-model.md
       - docs/architecture/context-map.md
@@ -41,8 +41,8 @@ stages:
   - id: ux-ui
     agent: ux-ui-designer
     skills:
-      - sdlc-ux-product-design
-      - sdlc-ui-design-system
+      - ux-product-design
+      - ui-design-system
     outputs:
       - docs/ux/journeys.md
       - docs/ux/flows.md
@@ -51,11 +51,11 @@ stages:
   - id: architecture
     agent: solution-architect
     skills:
-      - sdlc-architecture-rfc
-      - sdlc-application-architecture
-      - sdlc-data-architecture
-      - sdlc-api-versioning-deprecation
-      - sdlc-security-privacy-compliance
+      - architecture-rfc
+      - application-architecture
+      - data-architecture
+      - api-versioning-deprecation
+      - security-privacy-compliance
     outputs:
       - docs/architecture/rfc/template.md
       - docs/architecture/application-architecture.md
@@ -65,9 +65,9 @@ stages:
   - id: implementation-plan
     agent: orchestrator
     skills:
-      - sdlc-ai-coding-governance
-      - sdlc-delivery-roadmap-backlog
-      - sdlc-implementation-planning
+      - ai-coding-governance
+      - delivery-roadmap-backlog
+      - implementation-planning
     outputs:
       - docs/delivery/backlog.md
       - docs/engineering/implementation-plan.md
@@ -76,8 +76,8 @@ stages:
   - id: build
     agent: fullstack-builder
     skills:
-      - sdlc-code-change-execution
-      - sdlc-test-strategy
+      - code-change-execution
+      - test-strategy
     outputs:
       - code changes
       - tests
@@ -87,8 +87,8 @@ stages:
   - id: independent-validation
     agent: qa-test-engineer
     skills:
-      - sdlc-test-strategy
-      - sdlc-bdd-specifications
+      - test-strategy
+      - bdd-specifications
     outputs:
       - docs/quality/acceptance-tests.md
       - docs/quality/regression-risk.md
@@ -96,9 +96,9 @@ stages:
   - id: security-and-review
     agent: security-reviewer
     skills:
-      - sdlc-security-privacy-compliance
-      - sdlc-third-party-ip-risk
-      - sdlc-code-review
+      - security-privacy-compliance
+      - third-party-ip-risk
+      - code-review
     outputs:
       - docs/security/threat-model.md
       - docs/security/privacy-review.md
@@ -107,9 +107,9 @@ stages:
   - id: release-readiness
     agent: release-manager
     skills:
-      - sdlc-definition-of-done
-      - sdlc-observability-reliability
-      - sdlc-incident-support-feedback
+      - definition-of-done
+      - observability-reliability
+      - incident-support-feedback
     outputs:
       - docs/delivery/production-readiness.md
       - docs/delivery/release-plan.md

@@ -168,8 +168,8 @@ def validate_example_files(known_skills: set[str], errors: list[str]) -> None:
 
 def main() -> int:
     errors: list[str] = []
-    known_skills = {path.name for path in SKILLS.glob("sdlc-*")}
-    for skill in sorted(SKILLS.glob("sdlc-*")):
+    known_skills = {path.name for path in SKILLS.glob("*/")}
+    for skill in sorted(SKILLS.glob("*/")):
         skill_md = skill / "SKILL.md"
         openai = skill / "agents" / "openai.yaml"
         if not skill_md.exists():
@@ -192,7 +192,7 @@ def main() -> int:
             errors.append(f"{skill.name}: description too short")
         if BAD.search(text):
             errors.append(f"{skill.name}: contains placeholder text")
-    count = len(list(SKILLS.glob("sdlc-*")))
+    count = len(list(SKILLS.glob("*/")))
     if count != 58:
         errors.append(f"expected 58 skills, found {count}")
 
@@ -279,7 +279,7 @@ def main() -> int:
     compact = subprocess.run([sys.executable, str(ROOT / "scripts" / "compact_skills.py"), "--check"], capture_output=True, text=True)
     if compact.returncode != 0:
         errors.append("compact/ is out of date; run python scripts/compact_skills.py\n" + compact.stdout)
-    for scenario_file in sorted((ROOT / "evals").glob("sdlc-*.json")):
+    for scenario_file in sorted((ROOT / "evals").glob("*.json")):
         try:
             data = json.loads(scenario_file.read_text())
             assert data["skill"] == scenario_file.stem and (SKILLS / data["skill"]).exists()

@@ -7,9 +7,9 @@ recommended_runtimes:
   - claude-code
   - hermes
 skills:
-  - sdlc-security-privacy-compliance
-  - sdlc-third-party-ip-risk
-  - sdlc-ai-product-architecture
+  - security-privacy-compliance
+  - third-party-ip-risk
+  - ai-product-architecture
 inputs:
   - architecture artifacts
   - diff and dependency changes

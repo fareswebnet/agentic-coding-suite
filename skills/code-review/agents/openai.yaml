@@ -1,0 +1,4 @@
+interface:
+  display_name: "SDLC Code Review"
+  short_description: "Review code against gates"
+  default_prompt: "Use $code-review to find defects and risk before they reach users."

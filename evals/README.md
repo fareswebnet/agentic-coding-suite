@@ -4,7 +4,7 @@ Scenario files `evals/<skill>.json` hold realistic prompts with deterministic ch
 
 ```bash
 python scripts/run_evals.py --model llama3.1 --base-url http://localhost:11434/v1 --runs 3 --out evals/results/llama3.1.md
-python scripts/run_evals.py --model gpt-4o --base-url https://api.openai.com/v1 --api-key "$OPENAI_API_KEY" --skill sdlc-test-driven-development
+python scripts/run_evals.py --model gpt-4o --base-url https://api.openai.com/v1 --api-key "$OPENAI_API_KEY" --skill test-driven-development
 ```
 
 `--base-url claude-cli` runs the scenarios through your local Claude Code CLI (`--model sonnet`, `haiku`, or `opus`) with tools and skills disabled. `--base-url agy-cli` does the same through Antigravity (`--model gemini-4-argon-low`; `agy models` lists the rest); agy cannot disable its tools, so it is less isolated. Any OpenAI-compatible endpoint also works (Ollama, vLLM, llama.cpp server, LM Studio, hosted APIs).
@@ -16,7 +16,7 @@ Scenarios for skills that were removed after showing no gain are kept in `evals/
 - The checks are a floor: they detect whether the key behavior appears, not whether the answer is good. Read the replies behind failures.
 - Use `--runs 3` or more; small models vary between runs.
 - Record the model name and date (the report does). Results do not transfer across models.
-- A skill that does not improve the score on a model is a candidate for simplification, per `sdlc-skill-evaluation`.
+- A skill that does not improve the score on a model is a candidate for simplification, per `skill-evaluation`.
 
 ## Adding a scenario
 

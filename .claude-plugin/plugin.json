@@ -1,9 +1,9 @@
 {
-  "name": "rebar",
-  "version": "0.4.0",
+  "name": "coding",
+  "version": "0.5.0",
   "description": "Reinforcement for AI-driven delivery: evidence, verification, no unproven claims. Skills for spec-driven delivery, disciplined execution, legacy migration and system merge, quality gates, and agent orchestration.",
   "author": { "name": "fareswebnet" },
-  "repository": "https://github.com/fareswebnet/sdlc-rebar",
+  "repository": "https://github.com/fareswebnet/agentic-coding-suite",
   "license": "MIT",
   "keywords": ["sdlc", "spec-driven", "tdd", "migration", "agents"]
 }

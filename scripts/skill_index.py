@@ -4,7 +4,7 @@
   python scripts/skill_index.py                        # markdown index to paste into a system prompt
   python scripts/skill_index.py --format json
   python scripts/skill_index.py --select "migrate legacy system" --top 3
-  python scripts/skill_index.py --skill sdlc-task-breakdown    # print the full SKILL.md
+  python scripts/skill_index.py --skill task-breakdown    # print the full SKILL.md
 """
 
 from __future__ import annotations
@@ -20,7 +20,7 @@ SKILLS = Path(__file__).resolve().parents[1] / "skills"
 
 def load() -> list[dict]:
     items = []
-    for path in sorted(SKILLS.glob("sdlc-*/SKILL.md")):
+    for path in sorted(SKILLS.glob("*/SKILL.md")):
         text = path.read_text()
         name = re.search(r"^name:\s*(.+)$", text, re.M)
         desc = re.search(r"^description:\s*(.+)$", text, re.M)

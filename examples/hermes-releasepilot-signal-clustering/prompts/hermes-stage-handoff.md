@@ -5,7 +5,7 @@ Use these prompts when a full run needs to be resumed or when a stage should be 
 ## Domain And BDD
 
 ```text
-Use agents/domain-architect.yaml with skills sdlc-domain-modeling, sdlc-bounded-context-map, and sdlc-bdd-specifications.
+Use agents/domain-architect.yaml with skills domain-modeling, bounded-context-map, and bdd-specifications.
 
 Feature: ReleasePilot Signal Clustering.
 
@@ -21,7 +21,7 @@ Do not implement. Stop when BDD examples are ready for human acceptance.
 ## Red Test Writer
 
 ```text
-Use agents/qa-test-engineer.yaml with skills sdlc-test-strategy and sdlc-bdd-specifications.
+Use agents/qa-test-engineer.yaml with skills test-strategy and bdd-specifications.
 
 Inputs:
 - accepted BDD scenarios
@@ -41,7 +41,7 @@ Do not modify implementation files.
 ## Scoped Implementation
 
 ```text
-Use agents/fullstack-builder.yaml with skills sdlc-code-change-execution and sdlc-test-strategy.
+Use agents/fullstack-builder.yaml with skills code-change-execution and test-strategy.
 
 Implement only the Signal Clustering first slice.
 

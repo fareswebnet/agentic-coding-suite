@@ -10,7 +10,7 @@ Use the installer, which puts skills in `.claude/skills` of the target repo:
 python scripts/install.py --runtime claude --target /path/to/repo --agents-md --with-kit --native-roles
 ```
 
-Or install it as a plugin: `/plugin marketplace add fareswebnet/sdlc-rebar`, then `/plugin install rebar@sdlc-rebar`. Plugin skills are namespaced (`/rebar:sdlc-<name>`); skills copied by `install.py` are invoked as `/sdlc-<name>`. Either way they also trigger from their description.
+Or install it as a plugin: `/plugin marketplace add fareswebnet/agentic-coding-suite`, then `/plugin install coding@agentic-coding-suite`. Plugin skills are namespaced (`/coding:<name>`); skills copied by `install.py` are invoked as `/coding-<name>`. Either way they also trigger from their description.
 
 ## Project Memory
 
@@ -31,7 +31,7 @@ Use the agent role files under `agents/` to decide whether the task is product, 
 ## Suggested Prompts
 
 ```text
-Use the role `agents/fullstack-builder.yaml` and the skills `sdlc-implementation-planning` and `sdlc-code-change-execution`.
+Use the role `agents/fullstack-builder.yaml` and the skills `implementation-planning` and `code-change-execution`.
 Implement only the first vertical slice described in docs/engineering/implementation-plan.md.
 Run the validation commands and report residual risk.
 ```
@@ -65,9 +65,9 @@ Caveats: string checks are a floor and the sample is small. Several failures wit
 
 ## Claude Code notes
 
-- Skills with side effects (`sdlc-tasks-to-issues`, `sdlc-cutover-rollback`, `sdlc-data-migration-reconciliation`) set `disable-model-invocation: true`, so they only run when you invoke them explicitly with `/sdlc-<name>`.
+- Skills with side effects (`tasks-to-issues`, `cutover-rollback`, `data-migration-reconciliation`) set `disable-model-invocation: true`, so they only run when you invoke them explicitly with `/coding:<name>` (or `/coding-<name>` when installed standalone).
 - Claude Code shows skill descriptions to the model within a limited budget. The 58 descriptions total about 11,100 characters; if you install many other skills, descriptions may be shortened. Install only the subset you use, or rely on the harnesses and explicit `/sdlc-<name>` calls.
-- Subagents: `--native-roles` writes `.claude/agents/sdlc-<role>.md` (prefixed to avoid clashing with your own agents); run the `sdlc-independent-verifier` role as its own subagent so it does not see the builder's reasoning.
+- Subagents: `--native-roles` writes `.claude/agents/coding-<role>.md` (prefixed to avoid clashing with your own agents); run the `coding-independent-verifier` role as its own subagent so it does not see the builder's reasoning.
 
 ## MCP Connectors
 

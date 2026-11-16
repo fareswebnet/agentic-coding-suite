@@ -11,7 +11,7 @@ stages:
   - id: registry
     agent: legacy-analyst
     skills:
-      - sdlc-legacy-inventory-registry
+      - legacy-inventory-registry
     outputs:
       - docs/migration/registry.csv
       - field files for write actions
@@ -19,15 +19,15 @@ stages:
   - id: batching
     agent: orchestrator
     skills:
-      - sdlc-migration-batch-orchestration
-      - sdlc-bounded-context-map
+      - migration-batch-orchestration
+      - bounded-context-map
     outputs:
       - batch plan covering every registry line
     gate: no open registry line is unbatched
   - id: reverse-engineering
     agent: legacy-analyst
     skills:
-      - sdlc-legacy-reverse-engineering
+      - legacy-reverse-engineering
     outputs:
       - business-rule matrix
       - defect and question lists
@@ -35,8 +35,8 @@ stages:
   - id: contracts-and-oracles
     agent: qa-test-engineer
     skills:
-      - sdlc-characterization-testing
-      - sdlc-api-versioning-deprecation
+      - characterization-testing
+      - api-versioning-deprecation
     outputs:
       - interface contracts
       - golden masters and differential suite
@@ -44,9 +44,9 @@ stages:
   - id: build
     agent: fullstack-builder
     skills:
-      - sdlc-branch-worktree-lifecycle
-      - sdlc-test-driven-development
-      - sdlc-data-migration-reconciliation
+      - branch-worktree-lifecycle
+      - test-driven-development
+      - data-migration-reconciliation
     outputs:
       - vertical slice with tests
       - claimed registry lines with proof
@@ -54,8 +54,8 @@ stages:
   - id: batch-close
     agent: independent-verifier
     skills:
-      - sdlc-reachability-anti-simulation
-      - sdlc-independent-verification
+      - reachability-anti-simulation
+      - independent-verification
     outputs:
       - batch audit report
       - visas and refusals
@@ -63,8 +63,8 @@ stages:
   - id: cutover
     agent: release-manager
     skills:
-      - sdlc-cutover-rollback
-      - sdlc-performance-budgets
+      - cutover-rollback
+      - performance-budgets
     outputs:
       - rehearsal log
       - go/no-go record
@@ -72,7 +72,7 @@ stages:
   - id: capitalize
     agent: orchestrator
     skills:
-      - sdlc-delivery-retrospective
+      - delivery-retrospective
     outputs:
       - batch report
       - lessons applied to remaining batches

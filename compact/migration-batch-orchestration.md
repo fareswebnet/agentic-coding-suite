@@ -1,0 +1,23 @@
+# migration-batch-orchestration (compact)
+
+When: Run migration as vertical batches cut from the frozen registry, with measured exit criteria and an independent verification gate per batch.
+
+Goal: Keep large migrations honest: progress is counted on the registry, a batch closes only on proof, and drift is caught early.
+
+Steps:
+1. Phase 0, registry: `legacy-inventory-registry` for every source; exit when `scripts/sdlc_registry.py check` is clean and the…
+2. Phase 1, batching: assign every registry line to a batch; a batch is a deliverable vertical slice (persistence, port, adapter…
+3. Phase 2, reverse engineering of the batch: `legacy-reverse-engineering`; exit when R1 rules are confirmed.
+4. Phase 3, contracts and characterization: define interface contracts, then `characterization-testing` against the real legacy…
+5. Phase 4, build: implement the slice test-first in an isolated worktree, claiming lines with proof via `scripts/sdlc_registry.py…
+6. Phase 5, close: run `reachability-anti-simulation`, then an independent verifier runs `independent-verification`; only the…
+7. Phase 6, capitalize: batch report, anomalies, lessons into the retrospective, and adjust remaining batches.
+8. Report progress from `python scripts/sdlc_registry.py report`, never from what was written; refuse a batch close with unresolved…
+
+Never:
+- A phase without its measured exit criterion is not finished.
+- The implementer never verifies their own lines.
+- Do not report percent complete from code volume or test count; use the registry denominator.
+- Human approval remains required for dependency additions, destructive migrations, and production cutover.
+
+Next: `data-migration-reconciliation` for data batches, `cutover-rollback` when batches reach go-live.

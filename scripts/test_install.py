@@ -33,13 +33,13 @@ class InstallTests(unittest.TestCase):
             target.mkdir()
             result = run(INSTALL, "--runtime", runtime, "--target", str(target), "--home", str(self.home))
             self.assertEqual(result.returncode, 0, result.stderr)
-            self.assertTrue((target / rel / "sdlc-task-breakdown" / "SKILL.md").exists(), runtime)
+            self.assertTrue((target / rel / "coding-task-breakdown" / "SKILL.md").exists(), runtime)
 
     def test_user_scope_paths(self):
         self.assertEqual(self.install("--runtime", "codex", "--scope", "user").returncode, 0)
-        self.assertTrue((self.home / ".codex/skills/sdlc-task-breakdown/SKILL.md").exists())
+        self.assertTrue((self.home / ".codex/skills/coding-task-breakdown/SKILL.md").exists())
         self.assertEqual(self.install("--runtime", "antigravity", "--scope", "user").returncode, 0)
-        self.assertTrue((self.home / ".gemini/config/skills/sdlc-task-breakdown/SKILL.md").exists())
+        self.assertTrue((self.home / ".gemini/config/skills/coding-task-breakdown/SKILL.md").exists())
         self.assertNotEqual(self.install("--runtime", "generic", "--scope", "user").returncode, 0)
 
     def test_agents_md_is_managed_and_idempotent(self):
@@ -62,7 +62,7 @@ class InstallTests(unittest.TestCase):
         self.assertFalse((self.target / ".agents").exists())
         self.assertFalse((self.target / "AGENTS.md").exists())
         self.install("--runtime", "codex")
-        marker = self.target / ".agents/skills/sdlc-task-breakdown/local-note.txt"
+        marker = self.target / ".agents/skills/coding-task-breakdown/local-note.txt"
         marker.write_text("keep")
         self.install("--runtime", "codex")
         self.assertTrue(marker.exists())
@@ -71,18 +71,21 @@ class InstallTests(unittest.TestCase):
 
     def test_native_roles_claude_only(self):
         self.assertEqual(self.install("--runtime", "claude", "--native-roles").returncode, 0)
-        text = (self.target / ".claude/agents/sdlc-independent-verifier.md").read_text()
-        self.assertIn("name: sdlc-independent-verifier", text)
+        text = (self.target / ".claude/agents/coding-independent-verifier.md").read_text()
+        self.assertIn("name: coding-independent-verifier", text)
         self.assertNotEqual(self.install("--runtime", "codex", "--native-roles").returncode, 0)
 
     def test_link_mode(self):
         self.install("--runtime", "generic", "--mode", "link")
-        self.assertTrue((self.target / ".agents/skills/sdlc-task-breakdown").is_symlink())
+        skill = self.target / ".agents/skills/coding-task-breakdown"
+        self.assertTrue((skill / "SKILL.md").exists() and not (skill / "SKILL.md").is_symlink())
+        self.assertIn("name: coding-task-breakdown", (skill / "SKILL.md").read_text())
+        self.assertTrue(any(c.is_symlink() for c in skill.iterdir()))
 
     def test_skill_index(self):
         out = run(INDEX, "--select", "migrate legacy system registry", "--top", "3").stdout
-        self.assertIn("sdlc-legacy-inventory-registry", out)
-        self.assertIn("# SDLC Task Breakdown", run(INDEX, "--skill", "sdlc-task-breakdown").stdout)
+        self.assertIn("legacy-inventory-registry", out)
+        self.assertIn("# SDLC Task Breakdown", run(INDEX, "--skill", "task-breakdown").stdout)
 
 
 if __name__ == "__main__":

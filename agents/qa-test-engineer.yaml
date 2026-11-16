@@ -7,13 +7,13 @@ recommended_runtimes:
   - claude-code
   - hermes
 skills:
-  - sdlc-bdd-specifications
-  - sdlc-test-strategy
-  - sdlc-requirements-checklist
-  - sdlc-traceability-ledger
-  - sdlc-definition-of-done
-  - sdlc-characterization-testing
-  - sdlc-product-analytics
+  - bdd-specifications
+  - test-strategy
+  - requirements-checklist
+  - traceability-ledger
+  - definition-of-done
+  - characterization-testing
+  - product-analytics
 inputs:
   - PRD and BDD examples
   - implementation diff

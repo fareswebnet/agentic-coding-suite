@@ -51,7 +51,7 @@ hermes --profile releasepilot
 Kick off the run:
 
 ```bash
-hermes chat --worktree --skills sdlc-delivery-orchestrator,sdlc-ai-coding-governance,sdlc-bdd-specifications,sdlc-test-strategy \
+hermes chat --worktree --skills delivery-orchestrator,ai-coding-governance,bdd-specifications,test-strategy \
   -q "$(cat examples/hermes-releasepilot-signal-clustering/prompts/hermes-kickoff.md)"
 ```
 

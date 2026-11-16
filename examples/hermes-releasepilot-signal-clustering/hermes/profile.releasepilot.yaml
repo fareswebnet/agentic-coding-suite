@@ -23,14 +23,14 @@ memory_policy:
     - temporary implementation guesses
 skills:
   sdlc:
-    - sdlc-delivery-orchestrator
-    - sdlc-ai-coding-governance
-    - sdlc-domain-modeling
-    - sdlc-bounded-context-map
-    - sdlc-bdd-specifications
-    - sdlc-test-strategy
-    - sdlc-security-privacy-compliance
-    - sdlc-definition-of-done
+    - delivery-orchestrator
+    - ai-coding-governance
+    - domain-modeling
+    - bounded-context-map
+    - bdd-specifications
+    - test-strategy
+    - security-privacy-compliance
+    - definition-of-done
   project:
     - releasepilot-research
     - releasepilot-domain

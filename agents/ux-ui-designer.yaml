@@ -7,10 +7,10 @@ recommended_runtimes:
   - claude-code
   - hermes
 skills:
-  - sdlc-ux-product-design
-  - sdlc-ui-design-system
-  - sdlc-product-analytics
-  - sdlc-accessibility-engineering
+  - ux-product-design
+  - ui-design-system
+  - product-analytics
+  - accessibility-engineering
 inputs:
   - PRD and BDD examples
   - target users and devices

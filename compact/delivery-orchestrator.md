@@ -1,0 +1,23 @@
+# delivery-orchestrator (compact)
+
+When: Orchestrate the end-to-end SDLC from idea to release and feedback.
+
+Goal: Coordinate the complete SDLC without turning it into bureaucracy.
+
+Steps:
+1. Classify the work as greenfield, feature, refactor, incident, audit, or production improvement.
+2. Select Lean, Standard, or Enterprise-ready depth based on team size, regulation, risk, and maturity.
+3. Route to the smallest set of specialized skills needed for the current decision.
+4. Keep a traceability chain from idea to requirements, BDD examples, architecture, tickets, tests, release, and production metrics.
+5. When the user wants automation, select the smallest relevant harness from `harnesses/`: app idea to production, feature to…
+6. Use `agents/` role files to assign bounded specialist work with permissions, gates, and handoffs.
+7. Use the scaffold script when the target repo needs the standard docs tree.
+8. For spec-driven work, run the chain in order and skip steps only with a stated reason: `project-constitution` once per repo, then…
+9. For execution, require `branch-worktree-lifecycle` for isolation, `test-driven-development` for behavior changes…
+10. Make traceability executable with `traceability-ledger` and `python scripts/sdlc_trace.py`, and close tasks only against…
+11. For legacy replacement or merging two systems, switch to `migration-batch-orchestration` and `system-merge`, run…
+12. After a build pass, run `spec-convergence` to append remaining work, and `receiving-code-review` when feedback arrives.
+
+Never:
+- Do not start coding until the expected behavior, affected architecture/data boundaries, tests, and validation…
+- Do not delegate production deployment, secrets, destructive migrations, customer data, payments, or…

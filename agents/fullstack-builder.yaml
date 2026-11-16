@@ -7,15 +7,15 @@ recommended_runtimes:
   - claude-code
   - hermes
 skills:
-  - sdlc-implementation-planning
-  - sdlc-code-change-execution
-  - sdlc-task-breakdown
-  - sdlc-test-driven-development
-  - sdlc-systematic-debugging
-  - sdlc-verification-before-completion
-  - sdlc-branch-worktree-lifecycle
-  - sdlc-receiving-code-review
-  - sdlc-test-strategy
+  - implementation-planning
+  - code-change-execution
+  - task-breakdown
+  - test-driven-development
+  - systematic-debugging
+  - verification-before-completion
+  - branch-worktree-lifecycle
+  - receiving-code-review
+  - test-strategy
 inputs:
   - implementation plan
   - acceptance examples

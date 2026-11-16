@@ -6,17 +6,17 @@ recommended_runtimes:
   - codex
   - hermes
 skills:
-  - sdlc-delivery-orchestrator
-  - sdlc-ai-coding-governance
-  - sdlc-project-constitution
-  - sdlc-cross-artifact-analysis
-  - sdlc-subagent-driven-execution
-  - sdlc-spec-convergence
-  - sdlc-agent-context-engineering
-  - sdlc-tasks-to-issues
-  - sdlc-delivery-retrospective
-  - sdlc-skill-evaluation
-  - sdlc-migration-batch-orchestration
+  - delivery-orchestrator
+  - ai-coding-governance
+  - project-constitution
+  - cross-artifact-analysis
+  - subagent-driven-execution
+  - spec-convergence
+  - agent-context-engineering
+  - tasks-to-issues
+  - delivery-retrospective
+  - skill-evaluation
+  - migration-batch-orchestration
 inputs:
   - raw idea or work request
   - repo state and current delivery artifacts

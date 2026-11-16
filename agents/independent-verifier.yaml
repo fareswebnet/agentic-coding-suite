@@ -7,10 +7,10 @@ recommended_runtimes:
   - codex
   - hermes
 skills:
-  - sdlc-independent-verification
-  - sdlc-reachability-anti-simulation
-  - sdlc-characterization-testing
-  - sdlc-traceability-ledger
+  - independent-verification
+  - reachability-anti-simulation
+  - characterization-testing
+  - traceability-ledger
 inputs:
   - registry
   - repository at the batch-close commit

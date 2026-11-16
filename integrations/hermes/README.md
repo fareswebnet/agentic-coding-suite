@@ -14,28 +14,28 @@ Hermes is a good runtime for:
 
 ## Install Skills
 
-Keep this repository as a project dependency and expose the `skills/`, `agents/`, `harnesses/`, and `pipelines/` folders as project context. If the local Hermes setup supports skill folders, mirror each `skills/sdlc-*` directory into the configured Hermes skills path.
+Keep this repository as a project dependency and expose the `skills/`, `agents/`, `harnesses/`, and `pipelines/` folders as project context. If the local Hermes setup supports skill folders, mirror each `skills/*` directory into the configured Hermes skills path.
 
 ## Example Runs
 
 Interactive project kickoff:
 
 ```bash
-hermes chat --worktree --skills sdlc-delivery-orchestrator \
+hermes chat --worktree --skills delivery-orchestrator \
   -q "Use harnesses/app-idea-to-production.yaml for this app idea. Create the product, BDD, architecture, and implementation plan. Stop before coding until the plan is reviewable."
 ```
 
 Parallel implementation slice:
 
 ```bash
-hermes chat --worktree --skills sdlc-code-change-execution \
+hermes chat --worktree --skills code-change-execution \
   -q "Use agents/fullstack-builder.yaml. Implement slice 1 from docs/engineering/implementation-plan.md, run tests, and prepare a PR summary."
 ```
 
 Production learning report:
 
 ```bash
-hermes chat --skills sdlc-incident-support-feedback,sdlc-product-analytics \
+hermes chat --skills incident-support-feedback,product-analytics \
   -q "Run pipelines/production-feedback-loop.md against the latest support and observability signals available through approved tools."
 ```
 
@@ -44,7 +44,7 @@ Complete ReleasePilot example:
 ```bash
 python3 examples/hermes-releasepilot-signal-clustering/scripts/validate_hermes_example.py
 
-hermes chat --worktree --skills sdlc-delivery-orchestrator,sdlc-ai-coding-governance,sdlc-bdd-specifications,sdlc-test-strategy \
+hermes chat --worktree --skills delivery-orchestrator,ai-coding-governance,bdd-specifications,test-strategy \
   -q "$(cat examples/hermes-releasepilot-signal-clustering/prompts/hermes-kickoff.md)"
 ```
 
